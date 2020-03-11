@@ -26,7 +26,7 @@ public class FactorialTest {
     @Test
     public void whenCalculateZero() {
         int rsl = Factorial.calc(0);
-        int expected = 0;
+        int expected = 1;
         assertThat(rsl, Matchers.is(expected));
     }
 
