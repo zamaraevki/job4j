@@ -6,30 +6,18 @@ public class Merge {
 
     public int[] merge(int[] left, int[] right) {
         int[] rsl = new int[left.length + right.length];
-        int index1 = 0;
-        int index2 = 0;
-        int index3 = 0;
-        while (index1 < left.length && index2 < right.length) {
-            if (left[index1] < right[index2]) {
-                rsl[index3] = left[index1];
-                index1 += 1;
+        int ileft = 0;
+        int iright = 0;
+        int iresult = 0;
+        while (iresult < rsl.length) {
+            if (ileft < left.length && iright < right.length) {
+                rsl[iresult++] = left[ileft] <= right[iright] ? left[ileft++] : right[iright++];
+            } else if (ileft < left.length) {
+                rsl[iresult++] = left[ileft++];
             } else {
-                rsl[index3] = right[index2];
-                index2 += 1;
+                rsl[iresult++] = right[iright++];
             }
-            index3 += 1;
         }
-        while (index1 < left.length) {
-            rsl[index3] = left[index1];
-            index1 += 1;
-            index3 += 1;
-        }
-        while (index2 < right.length) {
-            rsl[index3] = right[index2];
-            index2 += 1;
-            index3 += 1;
-        }
-
         return rsl;
     }
 
