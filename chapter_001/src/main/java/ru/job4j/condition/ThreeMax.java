@@ -1,6 +1,7 @@
 package ru.job4j.condition;
 
 public class ThreeMax {
+
     public static int max(int first, int second, int third) {
         int result = first;
         if (second >= first && second >= third) {
@@ -10,5 +11,12 @@ public class ThreeMax {
             result = third;
         }
         return result;
+    }
+        public static int max(int first, int second, int third, int fourth) {
+            int result = fourth;
+            if (max(first, second, third) > fourth) {
+                result = max(first, second, third);
+            }
+            return result;
     }
 }
